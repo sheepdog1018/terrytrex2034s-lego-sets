@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TerryTRex Lego Sets</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+	<meta charset="UTF-8">
+	<title>TerryTRex2034's Lego Sets</title>
+	<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="minifig-header-row">
+		<img src="https://i.postimg.cc/zGkbBg7S/lego-minifig-2.png" alt="Minifig 2">
+		<img src="https://i.postimg.cc/j2JtJpbY/lego-minifig-8.png" alt="Minifig 8">
+		<img src="https://i.postimg.cc/59HC3j9b/lego-minifig-6.png" alt="Minifig 6">
+		<img src="https://i.postimg.cc/SKNXzxt0/lego-minifig-1.png" alt="Minifig 1">
+		<img src="https://i.postimg.cc/15wVkTNd/lego-minifig-5.png" alt="Minifig 5">
+		<img src="https://i.postimg.cc/Cx0nSNGx/lego-minifig-4.png" alt="Minifig 4">
+		<img src="https://i.postimg.cc/5jd15s4Y/lego-minifig-7.png" alt="Minifig 7">
+		<img src="https://i.postimg.cc/kMcgWmKq/lego-minifig-3.png" alt="Minifig 3">
+	</div>
+
+	<h1 class="lego-title">Terry T-Rex 2034's LEGO Sets</h1>
+	<div id="ownedSetDisplay">
+		<h3 id="ownedSetCountText"></h3>
+		<div class="owned-wall-wrapper">
+			<div class="studs-row">
+				<div class="stud"></div>
+				<div class="stud"></div>
+				<div class="stud"></div>
+				<div class="stud"></div>
+			</div>
+			<div id="ownedSetIconWall"></div>
+		</div>
+	</div>
+	<form class="container" onsubmit="checkSet(); return false;">
+		<h2>LEGO Set Checker</h2>
+		<input type="text" id="setNumberInput" placeholder="Enter LEGO Set Number" />
+		<button type="submit"><b>Check Ownership</b></button>
+		<div id="result"></div>
+	</form>
+
+	<h2 style="text-align:center;">Browse My LEGO Set Gallery</h2>
+	<div class="search-bar">
+		<input type="text" id="filterInput" placeholder="Set name or # ..." oninput="filterGallery()" />
+		<button onclick="filterGallery()"><b>Search</b></button>
+	</div>
+	<div id="setCount" class="set-count"></div>
+	<div id="legoGallery" class="gallery-container"></div>
+	<footer class="lego-footer">
+		<div class="minifig-row">
+			<img src="https://i.postimg.cc/SKNXzxt0/lego-minifig-1.png" alt="Minifig 1">
+			<img src="https://i.postimg.cc/zGkbBg7S/lego-minifig-2.png" alt="Minifig 2">
+			<img src="https://i.postimg.cc/kMcgWmKq/lego-minifig-3.png" alt="Minifig 3">
+			<img src="https://i.postimg.cc/Cx0nSNGx/lego-minifig-4.png" alt="Minifig 4">
+			<img src="https://i.postimg.cc/15wVkTNd/lego-minifig-5.png" alt="Minifig 5">
+			<img src="https://i.postimg.cc/59HC3j9b/lego-minifig-6.png" alt="Minifig 6">
+			<img src="https://i.postimg.cc/5jd15s4Y/lego-minifig-7.png" alt="Minifig 7">
+			<img src="https://i.postimg.cc/j2JtJpbY/lego-minifig-8.png" alt="Minifig 8">
+		</div>
+		<p class="footer-text">Built with <img class="footer-brick" src="https://i.postimg.cc/cJ2XD23J/lego-brick-1.png" alt="Lego brick 1"> by <a href="https://docs.google.com/spreadsheets/d/1BeH9uPzbpe8wNo5DNStJFM3gr6QluvOTs3KQiKN_pe0/edit?usp=sharing" target="_blank">TerryTRex2034</a></p>
+	</footer>
+
+</body>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
