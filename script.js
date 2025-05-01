@@ -17,7 +17,7 @@ fetch(url)
 	});
 
 // 🔹 Gallery Logic
-const galleryQuery = encodeURIComponent("SELECT B,C,D,F");
+const galleryQuery = encodeURIComponent("SELECT B,C,D,F,G");
 const galleryURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tq=${galleryQuery}`;
 
 let fullLegoData = [];
@@ -32,11 +32,34 @@ fetch(galleryURL)
 			name: row.c[0]?.v || "",
 			number: row.c[1]?.v?.toString() || "",
 			link: row.c[2]?.v || "",
-			img: row.c[3]?.v || ""
+			img: row.c[3]?.v || "",
+			theme: row.c[4]?.v || ""
 		}));
 
+		renderThemeFilter(fullLegoData);
 		renderGallery(fullLegoData);
 	});
+
+function renderThemeFilter(data) {
+	const uniqueThemes = [
+		...new Set(data.map((item) => item.theme).filter(Boolean))
+	].sort();
+	const container = document.querySelector(".search-bar");
+
+	const select = document.createElement("select");
+	select.id = "themeFilter";
+	select.innerHTML =
+		`<option value="">Filter by Theme</option>` +
+		uniqueThemes
+			.map((theme) => `<option value="${theme}">${theme}</option>`)
+			.join("");
+
+	select.addEventListener("change", () => {
+		filterGallery(); // re-filter on change
+	});
+
+	container.appendChild(select);
+}
 
 function renderGallery(data) {
 	const container = document.getElementById("legoGallery");
@@ -68,15 +91,14 @@ function filterGallery() {
 		.getElementById("filterInput")
 		.value.trim()
 		.toLowerCase();
-	if (!input) {
-		renderGallery(fullLegoData); // Show all
-		return;
-	}
+	const selectedTheme = document.getElementById("themeFilter")?.value || "";
 
-	const filtered = fullLegoData.filter(
-		(item) =>
-			item.number.startsWith(input) || item.name.toLowerCase().includes(input)
-	);
+	const filtered = fullLegoData.filter((item) => {
+		const matchText =
+			item.name.toLowerCase().includes(input) || item.number.startsWith(input);
+		const matchTheme = selectedTheme ? item.theme === selectedTheme : true;
+		return matchText && matchTheme;
+	});
 
 	renderGallery(filtered);
 }
